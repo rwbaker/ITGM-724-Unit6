@@ -5,17 +5,36 @@
  * @author Richard Baker, rbaker22@student.scad.edu
  *
  * @assignment
+ * Using the materials covered in the course so far, create a guestbook that
+ * allows users to leave comments. For extra credit, allow users to also
+ * upload an image with their post (up to 10 points awarded for this
+ * functioning feature).
  *
- *
- *
- * @short desc
- *
- *
+ * @shortdesc
+ * This page displays all guest book entries,
+ * AS WELL AS receives any post submissions from the create.php form
  *
  * @dependencies
+ * includes/header.php - standard header nav for all pages
  * Bootstrap @ https://getbootstrap.com
  *
  */
+
+ // Pull data from POST array IF it's not empty
+ if (!empty($_POST)) {
+
+   // Grab data from our POST array & make it easier to reference in the future
+   $avatar = $_POST['form-file-avatar']; //@TODO
+   $message = $_POST['form-text-message'];
+   // Get value if user submitted a name, otherwise default to Anon.
+   if ($_POST['form-text-name']) {
+     $name = $_POST['form-text-name'];
+   } else {
+     $name = "Anonymous";
+   }
+
+}
+
 ?>
 
   <!DOCTYPE html>
@@ -40,7 +59,7 @@
 
     <div class="container">
 
-      
+
       <div class="row justify-content-center mt-5 mb-3">
         <div class="col-5">
           <p class="text-secondary"><strong>Welcome to the guest book.</strong><br />

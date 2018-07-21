@@ -37,13 +37,28 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col">
+          <h1>Guest Book</h1>
 
-          ...
+          <!-- COMMENT -->
+          <div class="comment shadow-sm p-3 mb-5 bg-white rounded">
+            <div class="container">
+              <div class="row">
+                <div class="col-1 d-sm-none d-md-block"><div class="avatar">JS</div></div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col name">Jacob Schmitt</div>
+                    <div class="col date text-muted">00/00/0000</div>
+                  </div> <!-- END OF name/date row -->
+                  <div class="comment-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa felis, sodales eget justo in, finibus efficitur eros. Maecenas dapibus imperdiet lorem, in feugiat justo lobortis sit amet. Donec in laoreet erat. Cras consequat, lorem nec commodo convallis, ex odio scelerisque sapien, in auctor tortor est at sem.
+                  </div>
+                </div>
+              </div><!-- END OF .comment .container .row -->
+            </div><!-- END OF .comment .container -->
+          </div><!-- END OF .comment -->
 
         </div>
-        <div class="col-md-3"></div>
       </div>
     </div>
 

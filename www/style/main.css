@@ -2,4 +2,24 @@ body {
   background: #f5f5f5;
 }
 
-.emoji {font-size:5em;}
+.comment {
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  background: #ccc;
+  overflow: hidden;
+  font-size: 60px;
+  padding: 5px;
+  line-height: 70px;
+}
+
+.comment .name {
+  font-weight: bold;
+}
+
+.comment .date {
+  text-align: right;
+  opacity: 0.5;
+}

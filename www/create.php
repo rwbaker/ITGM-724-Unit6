@@ -43,22 +43,19 @@
       <div class="row justify-content-center mt-5 mb-3">
         <div class="col-7">
 
+          <h1 class="h3 mb-5">Sign the Guest Book</h1>
+
           <!--
           FORM -->
-          <form>
+          <form action="index.php" method="post">
             <div class="form-group">
               <label for="">Name</label>
               <input type="text" class="form-control" id="form-text-name" placeholder="">
             </div>
 
-            <!-- <div class="form-check mb-3">
-              <input type="checkbox" class="form-check-input" id="form-check-anon">
-              <label class="form-check-label" for="form-check-anon">Anonymous</label>
-            </div> -->
-
             <div class="form-group">
-              <label for="form-text-message">Message</label>
-              <textarea class="form-control" id="form-text-message" rows="3"></textarea>
+              <label for="form-text-message">Message *</label>
+              <textarea class="form-control" id="form-text-message" rows="3" required></textarea>
             </div>
 
             <div class="form-group">

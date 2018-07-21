@@ -78,7 +78,7 @@
                 <div class="col-2 d-sm-none d-md-block"><div class="avatar">JS</div></div>
                 <div class="col">
                   <div class="row">
-                    <div class="col name">Jacob Schmitt</div>
+                    <div class="col name">Jacob Schmitt <span class="low-priority-text">says</span></div>
                     <div class="col date text-muted">00/00/0000</div>
                   </div> <!-- END OF name/date row -->
                   <div class="comment-body text-secondary">

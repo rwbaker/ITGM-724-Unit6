@@ -37,5 +37,8 @@ body {
 
 .comment .date {
   text-align: right;
+}
+.low-priority-text {
   opacity: 0.5;
+  font-weight: normal;
 }

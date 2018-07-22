@@ -39,7 +39,7 @@
     }
 
     // Create date
-    $entryDate = date("d/m/yyyy");
+    $entryDate = date("m/d/Y");
 
     // Write the data in an external file
     writeDataFile('guestBookEntries', $name, $entryDate, $message);

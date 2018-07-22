@@ -22,6 +22,7 @@
 
   //Importing helper functions to keep this page clean...
   include 'includes/writeDataFile.php';
+  include 'includes/readDataFile.php';
 
 
   // Pull data from POST array IF it's not empty
@@ -46,18 +47,8 @@
 
   }
 
-
-
-//
-// if (!empty($_POST)) {
-//   // echo $_POST;
-//   echo "post true <br />";
-// } else {
-//   echo "post false <br />";
-// }
-// if (!empty($avatar)) {echo "avatar: " . $avatar . "<br/>";}
-// if (!empty($message)) {echo "message: " . $message . "<br/>";}
-// if (!empty($name)) {echo "name: " . $name . "<br/>";}
+  // Pull data from our 'guestBookEntries' folder
+  $entries = readDataFile('guestBookEntries');
 
 ?>
 
@@ -91,30 +82,43 @@
         </div>
       </div>
 
+      <?php
 
+      // Loop thru entry data
+      foreach ($entries as $entryItem) {
 
-      <!-- COMMENT -->
-      <div class="row">
-        <div class="col">
-          <div class="comment shadow-sm p-3 mb-5 bg-white rounded">
-            <div class="container">
-              <div class="row">
-                <div class="col-2 d-sm-none d-md-block"><div class="avatar">JS</div></div>
-                <div class="col">
-                  <div class="row">
-                    <div class="col name">Jacob Schmitt <span class="low-priority-text">says</span></div>
-                    <div class="col date text-muted">00/00/0000</div>
-                  </div> <!-- END OF name/date row -->
-                  <div class="comment-body text-secondary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas massa felis, sodales eget justo in, finibus efficitur eros. Maecenas dapibus imperdiet lorem, in feugiat justo lobortis sit amet. Donec in laoreet erat. Cras consequat, lorem nec commodo convallis, ex odio scelerisque sapien, in auctor tortor est at sem.
+        // Pull first letter from each word. Use this to get user's initials. Returns array.
+        preg_match_all("/[A-Z]/", ucwords(strtolower($entryItem[0])), $matches);
+        // convert array to string
+        $initials = implode("", $matches[0]);
+
+        // Print data in comment HTML template
+        echo "
+        <!-- COMMENT -->
+        <div class='row'>
+          <div class='col'>
+            <div class='comment shadow-sm p-3 mb-5 bg-white rounded'>
+              <div class='container'>
+                <div class='row'>
+                  <div class='col-2 d-sm-none d-md-block'><div class='avatar'>$initials</div></div>
+                  <div class='col'>
+                    <div class='row'>
+                      <div class='col name'>$entryItem[0] <span class='low-priority-text'>says</span></div>
+                      <div class='col date text-muted'>$entryItem[1]</div>
+                    </div> <!-- END OF name/date row -->
+                    <div class='comment-body text-secondary'>
+                      $entryItem[2]
+                    </div>
                   </div>
-                </div>
-              </div><!-- END OF .comment .container .row -->
-            </div><!-- END OF .comment .container -->
-          </div><!-- END OF .comment -->
-        </div><!-- END OF .col -->
-      </div><!-- END OF .row -->
+                </div><!-- END OF .comment .container .row -->
+              </div><!-- END OF .comment .container -->
+            </div><!-- END OF .comment -->
+          </div><!-- END OF .col -->
+        </div><!-- END OF .row -->";
 
+      }
+
+      ?>
 
     </div> <!-- END OF .contaner -->
   </body>

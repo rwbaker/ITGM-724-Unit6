@@ -14,21 +14,17 @@
         // @todo: limit to *.txt files
         if (($fileName != ".") && ($fileName != "..") && ($fileName != ".DS_Store")) {
 
-          // Print all content...
-          // $entry = file_get_contents($dir . "/" . $fileName);
-          // echo $entry . "<br>";
-
+          // Pull data from file
           $entry = file($dir . "/" . $fileName);
-          // echo "name: " . htmlentities($entry[0]) . "<br>";
-          // echo "date: " . htmlentities($entry[1]) . "<br>";
-          // echo "message: " . htmlentities($entry[2]) . "<br>";
 
+          // Add to array
           $entries[] = $entry;
 
         }
       }
     }
 
+    // Return array to fn that called it
     return $entries;
 
   }

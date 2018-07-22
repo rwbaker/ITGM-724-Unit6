@@ -20,27 +20,31 @@
  *
  */
 
-//Importing helper functions to keep this page clean...
-include 'includes/writeDataFile.php';
+  //Importing helper functions to keep this page clean...
+  include 'includes/writeDataFile.php';
 
 
- // Pull data from POST array IF it's not empty
- if (!empty($_POST)) {
+  // Pull data from POST array IF it's not empty
+  if (!empty($_POST)) {
 
-   // Grab data from our POST array & make it easier to reference in the future
-   // $avatar = $_POST['form-file-avatar']; //@TODO
-   $message = $_POST['form-text-message'];
-   // Get value if user submitted a name, otherwise default to Anon.
-   if ($_POST['form-text-name']) {
-     $name = $_POST['form-text-name'];
-   } else {
-     $name = "Anonymous";
-   }
+    // Grab data from our POST array & make it easier to reference in the future
+    // $avatar = $_POST['form-file-avatar']; //@TODO
+    $message = $_POST['form-text-message'];
 
-  // Write the data in an external file
-  writeDataFile('guestBookEntries', $name, $message);
+    // Get value if user submitted a name, otherwise default to Anon.
+    if ($_POST['form-text-name']) {
+      $name = $_POST['form-text-name'];
+    } else {
+      $name = "Anonymous";
+    }
 
-}
+    // Create date
+    $entryDate = date("d/m/yyyy");
+
+    // Write the data in an external file
+    writeDataFile('guestBookEntries', $name, $entryDate, $message);
+
+  }
 
 
 

@@ -1,7 +1,7 @@
 <?php
 
 
-function writeDataFile($dir, $name, $message) {
+function writeDataFile($dir, $name, $entryDate, $message) {
 
   // folder name where data resides
   // $dir = "guestBookEntries";
@@ -15,6 +15,11 @@ function writeDataFile($dir, $name, $message) {
       // Write name if not empty + line return
       if (!empty($name)) {
         $saveString .= stripslashes($name) . "\n";
+      }
+
+      // Write date + line return
+      if (!empty($entryDate)) {
+        $saveString .= stripslashes($entryDate) . "\n";
       }
 
       // write message if not empty + line return

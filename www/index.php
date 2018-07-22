@@ -20,11 +20,15 @@
  *
  */
 
+//Importing helper functions to keep this page clean...
+include 'includes/writeDataFile.php';
+
+
  // Pull data from POST array IF it's not empty
  if (!empty($_POST)) {
 
    // Grab data from our POST array & make it easier to reference in the future
-   $avatar = $_POST['form-file-avatar']; //@TODO
+   // $avatar = $_POST['form-file-avatar']; //@TODO
    $message = $_POST['form-text-message'];
    // Get value if user submitted a name, otherwise default to Anon.
    if ($_POST['form-text-name']) {
@@ -33,7 +37,23 @@
      $name = "Anonymous";
    }
 
+  // Write the data in an external file
+  writeDataFile('guestBookEntries', $name, $message);
+
 }
+
+
+
+//
+// if (!empty($_POST)) {
+//   // echo $_POST;
+//   echo "post true <br />";
+// } else {
+//   echo "post false <br />";
+// }
+// if (!empty($avatar)) {echo "avatar: " . $avatar . "<br/>";}
+// if (!empty($message)) {echo "message: " . $message . "<br/>";}
+// if (!empty($name)) {echo "name: " . $name . "<br/>";}
 
 ?>
 

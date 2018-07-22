@@ -50,20 +50,21 @@
           <form action="index.php" method="post">
             <div class="form-group">
               <label for="">Name</label>
-              <input type="text" class="form-control" id="form-text-name" placeholder="">
+              <input type="text" class="form-control" name="form-text-name" placeholder="">
             </div>
 
             <div class="form-group">
               <label for="form-text-message">Message *</label>
-              <textarea class="form-control" id="form-text-message" rows="3" required></textarea>
+              <textarea class="form-control" name="form-text-message" rows="3" required></textarea>
             </div>
 
             <div class="form-group">
               <label for="form-file-avatar">Upload an avatar</label>
-              <input type="file" class="form-control-file" id="form-file-avatar">
+              <input type="file" class="form-control-file" name="form-file-avatar">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
           </form>
 
         </div> <!-- END OF .col-5 -->

@@ -16,9 +16,13 @@
  *
  * @dependencies
  * includes/header.php - standard header nav for all pages
+ * includes/readDataFile.php - Helper function to read data from text files
+ * includes/writeDataFile.php - Helper function to write data to text files
  * Bootstrap @ https://getbootstrap.com
  *
  */
+
+
 
   //Importing helper functions to keep this page clean...
   include 'includes/writeDataFile.php';

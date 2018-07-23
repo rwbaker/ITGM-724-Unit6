@@ -5,18 +5,21 @@
  * @author Richard Baker, rbaker22@student.scad.edu
  *
  * @assignment
+ * Using the materials covered in the course so far, create a guestbook that
+ * allows users to leave comments. For extra credit, allow users to also
+ * upload an image with their post (up to 10 points awarded for this
+ * functioning feature).
  *
- *
- *
- * @short desc
- *
- *
+ * @shortdesc
+ * This page submits new Guestbook Entry form data to index.php
  *
  * @dependencies
+ * includes/header.php - standard header nav for all pages
+ * includes/readDataFile.php - Helper function to read data from text files
+ * includes/writeDataFile.php - Helper function to write data to text files
  * Bootstrap @ https://getbootstrap.com
  *
  */
-?>
 
   <!DOCTYPE html>
   <!-- Required meta tags -->

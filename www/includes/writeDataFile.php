@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * @desc   Helper function to write data to text files.
+ * 
+ * @param  string $dir       Directory name to store individual txt data files
+ * @param  string $name      User's name (or anon.)
+ * @param  string $entryDate Date of entry created
+ * @param  string $message   Guestbook message
+ */
 
 function writeDataFile($dir, $name, $entryDate, $message) {
 

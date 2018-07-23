@@ -1,6 +1,12 @@
+<?php
+/**
+ * @desc
+ * Shared header for entire Guestbook app
+ * 
+ */
+?>
 <div class="navbar-wrapper">
   <div class="container">
-
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand mb-0 h1" href="index.php">📘 Guestbook</a>
       <!-- Automagical hamburger meunu button at smaller viewports -->

@@ -14,7 +14,7 @@ function writeDataFile($dir, $name, $entryDate, $message, $avatarImagePath) {
   // var to hold all data before we write it
   $saveString = "";
 
-  if (is_dir($dir)) {
+  if (makeDirectory($dir) == TRUE) {
     if (isset($_POST)){
 
       // Write name if not empty + line return

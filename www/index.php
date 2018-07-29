@@ -149,7 +149,7 @@
                       <div class='col name'>$entryItem[0] <span class='low-priority-text'>says</span></div>
                       <div class='col date text-muted'>$entryItem[1]</div>
                     </div> <!-- END OF name/date row -->
-                    <div class='comment-body text-secondary'>
+                    <div class='comment-body text-secondary mt-2'>
                       $entryItem[2]
                     </div>
                   </div>

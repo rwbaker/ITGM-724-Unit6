@@ -26,7 +26,8 @@ body {
   /* background styles */
   background: #ccc;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 
   /* text styles */
   font-size: 60px;

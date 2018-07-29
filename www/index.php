@@ -49,8 +49,8 @@
     $entryDate = date("m/d/Y");
 
     // Grab data from our POST array & make it easier to reference in the future
-    // $avatar = $_POST['form-file-avatar']; //@TODO
     $message = $_POST['form-text-message'];
+    $email = $_POST['form-text-email'];
 
     // Get value if user submitted a name, otherwise default to Anon.
     if ($_POST['form-text-name']) {
@@ -73,7 +73,7 @@
     }
 
     // Write the data in an external file
-    writeDataFile($guestBookEntryFolder, $name, $entryDate, $message, $avatarImagePath);
+    writeDataFile($guestBookEntryFolder, $name, $email, $entryDate, $message, $avatarImagePath);
 
   }
 
@@ -126,11 +126,19 @@
       // Loop thru entry data
       foreach ($entries as $entryItem) {
 
+        /**
+        * $entryItem[0] - Name
+        * $entryItem[1] - Email
+        * $entryItem[2] - Create date
+        * $entryItem[3] - Guestbook message
+        * $entryItem[4] - Image path
+        */
+
         // Check for image avatar
-        if (isset($entryItem[3])) {
+        if (isset($entryItem[4])) {
 
           // If it exists, store in variable
-          $avatarImagePath = $entryItem[3];
+          $avatarImagePath = $entryItem[4];
           $initials = '';
         } else {
 
@@ -156,11 +164,13 @@
                   </div>
                   <div class='col'>
                     <div class='row'>
-                      <div class='col name'>$entryItem[0] <span class='low-priority-text'>says</span></div>
-                      <div class='col date text-muted'>$entryItem[1]</div>
+                      <div class='col name'>
+                        <a href='mailto:$entryItem[1]'>$entryItem[0]</a>
+                        <span class='low-priority-text'>says</span></div>
+                      <div class='col date text-muted'>$entryItem[2]</div>
                     </div> <!-- END OF name/date row -->
                     <div class='comment-body text-secondary mt-2'>
-                      $entryItem[2]
+                      $entryItem[3]
                     </div>
                   </div>
                 </div><!-- END OF .comment .container .row -->

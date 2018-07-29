@@ -58,6 +58,11 @@
             </div>
 
             <div class="form-group">
+              <label for="">Email address *</label>
+              <input type="email" class="form-control" name="form-text-email" required placeholder="">
+            </div>
+
+            <div class="form-group">
               <label for="form-text-message">Message *</label>
               <textarea class="form-control" name="form-text-message" rows="3" required></textarea>
             </div>
@@ -68,7 +73,7 @@
               <input type="file" accept=".jpg, .jpeg, .png" class="form-control-file" name="form-file-avatar">
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary mt-2">Submit</button>
 
           </form>
 

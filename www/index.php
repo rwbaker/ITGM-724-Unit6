@@ -107,8 +107,17 @@
 
       <div class="row justify-content-center mt-5 mb-3">
         <div class="col-5">
-          <p class="text-secondary"><strong>Welcome to the guest book.</strong><br />
-            Explore other's comments, or make one yourself.</p>
+          <p class="text-secondary"><strong>Welcome to the Guestbook!</strong><br />
+            <?php
+              // Change our welcome message base of if there are entries or not...
+              if (empty($entries)) {
+                echo "Please look around, and be the first to sign our guestbook.";
+              } else {
+                echo "Explore other's comments, or make one yourself.";
+              }
+            ?>
+
+          </p>
         </div>
       </div>
 

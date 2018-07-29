@@ -60,7 +60,8 @@
     }
 
     //Handle avatar upload
-    if ($_FILES['form-file-avatar']) {
+    // if form-file-avatar array exists and file-size is bigger than 0 bytes
+    if ($_FILES['form-file-avatar'] && $_FILES['form-file-avatar']['size'] > 0) {
 
         // Store upload in variable
         $avatarUpload = $_FILES['form-file-avatar'];

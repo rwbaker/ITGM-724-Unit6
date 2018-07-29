@@ -48,6 +48,7 @@ function writeDataFile($dir, $name, $email, $entryDate, $message, $avatarImagePa
       if (file_put_contents($saveFileName, $saveString)>0) {
         // echo "File \"" . htmlentities($saveFileName) . "\" successfully saved. <br/>\n";
       } else {
+        // @todo make human-friendly error
         // echo "Could not save file";
       }
 

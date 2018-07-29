@@ -13,6 +13,7 @@ function writeAvatar($dir, $avatar) {
 
     // File name placeholders
     $imageTmp = $avatar['tmp_name'];
+    //add timestamp to ensure unique name
     $imageName = returnTimestamp() . $avatar['name'];
 
     // Image path
@@ -20,7 +21,8 @@ function writeAvatar($dir, $avatar) {
 
     // Move the image to a permanent location...
     if (move_uploaded_file($imageTmp, $avatarImagePath) == FALSE) {
-      echo "Could not move uploaded file";
+      // @todo make human-friendly error
+      // echo "Could not move uploaded file";
 
     } else {
       chmod($avatarImagePath, 0644);

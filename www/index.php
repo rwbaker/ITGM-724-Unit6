@@ -22,8 +22,6 @@
  *
  */
 
-
-
   //Importing helper functions to keep this page clean...
   include 'includes/writeDataFile.php';
   include 'includes/readDataFile.php';
@@ -31,19 +29,13 @@
   include 'includes/makeDirectory.php';
   include 'includes/timestamp.php';
 
-  /* Folder anmes */
+  /* Folder names */
   $avatarImageFolder = 'guestAvatar';
   $guestBookEntryFolder = 'guestBookEntries';
 
 
   // Pull data from POST array IF it's not empty
   if (!empty($_POST)) {
-
-    // TEMPORARY
-    // print_r($_POST);
-    // echo "<br />---------<br />";
-    // print_r($_FILES);
-    // TEMPORARY
 
     // Create date
     $entryDate = date("m/d/Y");

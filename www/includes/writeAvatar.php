@@ -24,8 +24,7 @@ function writeAvatar($dir, $avatar) {
 
     } else {
       chmod($avatarImagePath, 0644);
-      echo "Successful!";
-
+      // echo "Successful!";
     }
 
     return $avatarImagePath;

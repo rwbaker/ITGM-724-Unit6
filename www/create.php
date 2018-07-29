@@ -20,6 +20,7 @@
  * Bootstrap @ https://getbootstrap.com
  *
  */
+?>
 
   <!DOCTYPE html>
   <!-- Required meta tags -->
@@ -50,7 +51,7 @@
 
           <!--
           FORM -->
-          <form action="index.php" method="post">
+          <form action="index.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="">Name</label>
               <input type="text" class="form-control" name="form-text-name" placeholder="">
@@ -63,7 +64,8 @@
 
             <div class="form-group">
               <label for="form-file-avatar">Upload an avatar</label>
-              <input type="file" class="form-control-file" name="form-file-avatar">
+              <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+              <input type="file" accept=".jpg, .jpeg, .png" class="form-control-file" name="form-file-avatar">
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

@@ -1,11 +1,11 @@
 <?php
 /**
  * @desc   Helper function to write data to text files.
- * 
- * @param  string $dir       Directory name to store individual txt data files
- * @param  string $name      User's name (or anon.)
- * @param  string $entryDate Date of entry created
- * @param  string $message   Guestbook message
+ *
+ * @param  string $dir            Directory name to store individual txt data files
+ * @param  string $name           User's name (or anon.)
+ * @param  string $entryDate      Date of entry created
+ * @param  string $message        Guestbook message
  */
 
 function writeDataFile($dir, $name, $entryDate, $message) {
@@ -39,7 +39,7 @@ function writeDataFile($dir, $name, $entryDate, $message) {
       $timeStamp = (float)$timeArray[1] + (float)$timeArray[0];
       $saveFileName = "$dir/entry.$timeStamp.txt";
       if (file_put_contents($saveFileName, $saveString)>0) {
-        echo "File \"" . htmlentities($saveFileName) . "\" successfully saved. <br/>\n";
+        // echo "File \"" . htmlentities($saveFileName) . "\" successfully saved. <br/>\n";
       } else {
         echo "Could not save file";
       }

@@ -27,10 +27,24 @@
   //Importing helper functions to keep this page clean...
   include 'includes/writeDataFile.php';
   include 'includes/readDataFile.php';
+  include 'includes/writeAvatar.php';
+
+  /* Folder anmes */
+  $avatarImageFolder = 'guestAvatar';
+  $guestBookEntryFolder = 'guestBookEntries';
 
 
   // Pull data from POST array IF it's not empty
   if (!empty($_POST)) {
+
+    // TEMPORARY
+    // print_r($_POST);
+    // echo "<br />---------<br />";
+    // print_r($_FILES);
+    // TEMPORARY
+
+    // Create date
+    $entryDate = date("m/d/Y");
 
     // Grab data from our POST array & make it easier to reference in the future
     // $avatar = $_POST['form-file-avatar']; //@TODO
@@ -43,11 +57,24 @@
       $name = "Anonymous";
     }
 
-    // Create date
-    $entryDate = date("m/d/Y");
+    //Handle avatar upload
+    if ($_FILES['form-file-avatar']) {
+      
+        // Store upload in variable
+        $avatarUpload = $_FILES['form-file-avatar'];
+
+        // Call our function to save the image upload
+        $avatarImagePath = writeAvatar($avatarImageFolder, $avatarUpload);
+
+        echo $avatarImagePath;
+    } else {
+      $avatarImagePath = '';
+    }
 
     // Write the data in an external file
-    writeDataFile('guestBookEntries', $name, $entryDate, $message);
+    writeDataFile($guestBookEntryFolder, $name, $entryDate, $message);
+
+
 
   }
 

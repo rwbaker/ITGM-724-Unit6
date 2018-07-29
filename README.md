@@ -1,6 +1,15 @@
 # Exercise 2: Guestbook
 **Due Unit 6, ITGM 727**
 
+Guestbook that allows users to leave comments.
+
+**Guestbook page**
+![Guestbook page](https://github.com/rwbaker/ITGM-724-Unit6/blob/master/www/images/1_guestbook.png?raw=true)
+
+**Create Entry**
+![Create Entry page](https://github.com/rwbaker/ITGM-724-Unit6/blob/master/www/images/2_create.png?raw=true)
+
+
 
 ### Learning Outcome
 After completing this exercise, students will be able to use PHP script to successfully:

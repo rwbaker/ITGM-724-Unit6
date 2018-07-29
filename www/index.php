@@ -28,6 +28,8 @@
   include 'includes/writeDataFile.php';
   include 'includes/readDataFile.php';
   include 'includes/writeAvatar.php';
+  include 'includes/makeDirectory.php';
+  include 'includes/timestamp.php';
 
   /* Folder anmes */
   $avatarImageFolder = 'guestAvatar';
@@ -59,7 +61,7 @@
 
     //Handle avatar upload
     if ($_FILES['form-file-avatar']) {
-      
+
         // Store upload in variable
         $avatarUpload = $_FILES['form-file-avatar'];
 

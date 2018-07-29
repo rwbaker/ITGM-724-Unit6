@@ -2,29 +2,35 @@
 /**
  * @desc   Helper function to write image uploads.
  *
- * @param  string $dir            Directory name to store individual txt data files
- * @param  ?file? $avatar         Optional avatar image upload
+ * @param  string $dir            Directory name to store image files
+ * @param  Array  $avatar         Avatar file upload
  */
 
 function writeAvatar($dir, $avatar) {
 
-  // echo "writeAvatar called! <br />";
-  // print_r($_FILES);
+  // Make the storage directory if it doesn't exist...
+  if (makeDirectory($dir) == TRUE) {
 
-  // Placeholder for the image UR>
-  $avatarImagePath = '';
+    // File name placeholders
+    $imageTmp = $avatar['tmp_name'];
+    $imageName = returnTimestamp() . $avatar['name'];
 
-  $imageTmp = $avatar['tmp_name'];
-  $imageName = $avatar['name'];
+    // Image path
+    $avatarImagePath = $dir . '/' . $imageName;
 
-  if (move_uploaded_file($imageTmp, "uploads/" . $imageName) == FALSE) {
-    echo "Could not move uploaded file";
-  } else {
-    chmod("uploads/" . $imageName, 0644);
-    echo "Successful!";
+    // Move the image to a permanent location...
+    if (move_uploaded_file($imageTmp, $avatarImagePath) == FALSE) {
+      echo "Could not move uploaded file";
+
+    } else {
+      chmod($avatarImagePath, 0644);
+      echo "Successful!";
+
+    }
+
+    return $avatarImagePath;
+
   }
-
-return $avatarImagePath;
 
 }
 

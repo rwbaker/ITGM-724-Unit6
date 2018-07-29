@@ -23,8 +23,12 @@ body {
   justify-content: center;
   flex-direction: column;
 
-  /* visual styles */
+  /* background styles */
   background: #ccc;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  /* text styles */
   font-size: 60px;
   text-align: center;
   font-weight: bold;

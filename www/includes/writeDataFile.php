@@ -2,13 +2,14 @@
 /**
  * @desc   Helper function to write data to text files.
  *
- * @param  string $dir            Directory name to store individual txt data files
- * @param  string $name           User's name (or anon.)
- * @param  string $entryDate      Date of entry created
- * @param  string $message        Guestbook message
+ * @param  string $dir              Directory name to store individual txt data files
+ * @param  string $name             User's name (or anon.)
+ * @param  string $entryDate        Date of entry created
+ * @param  string $message          Guestbook message
+ * @param  string $avatarImagePath  Avatar image path
  */
 
-function writeDataFile($dir, $name, $entryDate, $message) {
+function writeDataFile($dir, $name, $entryDate, $message, $avatarImagePath) {
 
   // folder name where data resides
   // $dir = "guestBookEntries";
@@ -32,6 +33,11 @@ function writeDataFile($dir, $name, $entryDate, $message) {
       // write message if not empty + line return
       if (!empty($message)) {
         $saveString .= stripslashes($message) . "\n";
+      }
+
+      // Store avatar image path
+      if (!empty($avatarImagePath)) {
+        $saveString .= stripslashes($avatarImagePath) . "\n";
       }
 
       $currentTime = microtime();

@@ -67,16 +67,12 @@
 
         // Call our function to save the image upload
         $avatarImagePath = writeAvatar($avatarImageFolder, $avatarUpload);
-
-        echo $avatarImagePath;
     } else {
       $avatarImagePath = '';
     }
 
     // Write the data in an external file
-    writeDataFile($guestBookEntryFolder, $name, $entryDate, $message);
-
-
+    writeDataFile($guestBookEntryFolder, $name, $entryDate, $message, $avatarImagePath);
 
   }
 
@@ -120,10 +116,22 @@
       // Loop thru entry data
       foreach ($entries as $entryItem) {
 
-        // Pull first letter from each word. Use this to get user's initials. Returns array.
-        preg_match_all("/[A-Z]/", ucwords(strtolower($entryItem[0])), $matches);
-        // convert array to string
-        $initials = implode("", $matches[0]);
+        // Check for image avatar
+        if (isset($entryItem[3])) {
+
+          // If it exists, store in variable
+          $avatarImagePath = $entryItem[3];
+          $initials = '';
+        } else {
+
+          // If not, get initials of Name...
+          $avatarImagePath = '';
+
+          // Pull first letter from each word. Use this to get user's initials. Returns array.
+          preg_match_all("/[A-Z]/", ucwords(strtolower($entryItem[0])), $matches);
+          // convert array to string
+          $initials = implode("", $matches[0]);
+        }
 
         // Print data in comment HTML template
         echo "
@@ -133,7 +141,9 @@
             <div class='comment shadow-sm p-3 mb-5 bg-white rounded'>
               <div class='container'>
                 <div class='row'>
-                  <div class='col-2 d-sm-none d-md-block'><div class='avatar'>$initials</div></div>
+                  <div class='col-2 d-sm-none d-md-block'>
+                    <div class='avatar' style='background-image:url($avatarImagePath)'>$initials</div>
+                  </div>
                   <div class='col'>
                     <div class='row'>
                       <div class='col name'>$entryItem[0] <span class='low-priority-text'>says</span></div>

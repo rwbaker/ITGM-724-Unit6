@@ -1,9 +1,9 @@
 <?php
 /**
  * @desc   Helper function to read data from text files.
- * 
+ *
  * @param  [string] $dir      Directory that holds all the txt date files to pull
- * @return [array]  $entreis  Entry data pulled from txt files
+ * @return [array]  $entries  Entry data pulled from txt files
  */
 
   function readDataFile($dir) {
